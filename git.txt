@@ -1,0 +1,117 @@
+
+							GIT
+==========================================================================================================================
+
+-> GIT is a source code management tool or version control system.
+-> SNAPSHOT - It represents some data of a particular time.
+
+-> git config --global user.name "<name>"
+-> git config --global user.email <email>
+-> git config --global push.default simple
+
+
+			    add		    	      commit
+	WORKING DIRECTORY ------------>STAGING AREA------------->GIT REPOSITORY
+
+
+git init --bare ->bare repositoy ,it will not have any working files
+
+git init -> initialising a repository(it contains .git directory)
+
+git clone -> When we clone it will be a replica of the cloned one
+
+git add <filename> or  .  -> adding files to staging area 
+
+git commit -m "<message>"  -> -m means message or comment
+
+git log -> it displays commmits
+
+git log --oneline -> displays as one line format
+
+git shortlog -> summarize git log output
+
+git log --oneline --grep "<commit message>" -> to search for the particular commit id by using commit message
+
+.gitignore -> specified files will be ignored
+
+git log --grep "<pattern>" -> searches for given pattern and displays it
+
+git show <commit-id> -> shows detailed information about particular commit
+
+git branch -> displays branches
+
+git branch <branch-name> -> to create a new branch
+
+git checkout <branch-name> -> to switch branch
+
+-> When we create a new branch its the copy of the master branch and modifying the new branch does not 
+effect the master branch(no changes will be made in the master branch).
+(Any changes that we do are local to that repository)
+
+->master is the default branch
+
+-> If there is a file that is not commited in the new branch that file will be visible in every branch
+
+-> git merge <source> <destination>
+
+-> (master -> master)  -> master branch of local repository to master branch of central repository
+
+-> We cannot merge between two branches of a diferent repository
+
+-> git diff master <bramch-name> - shows difference between two branches
+
+-> git stash -> It is used to backup and restore previous state
+
+-> git stash list -> lists all available stash
+
+-> git stash pop -> Removes stash and reapplys the changes
+
+-> git stash apply stash@{num} -> To apply a specific stash from repo 
+
+-> git stash clear - Removes stash from repo
+
+-> HEAD is the latest commit id or current commit where it is pointing to
+
+-> git reset --soft -> move only to head pointer
+
+-> git reset --mixed -> it removes from the head ref and also from the staging area
+
+-> git reset --hard -> it removes from head ref ,staging area and content from the file(UNDO a change which is done on the file)
+
+-> git revert <commit-id> -> it will undo the changes and aslo revert will create a new commit
+
+-> git clean -n (n-> dry run) -> displays the untracked files
+
+-> git clean -f -> deletes untracked files
+
+-> git tag -a <pattern> -m "<message>" <commit-id>
+
+-> git tag -> displays list of available  tags
+
+-> git show <pattern> -> Displays the content of the tag
+
+-> git tag -d <tag> -> deletes the tag
+
+-> Bisect command allows us to run binary search through the commit history to identify the commit  that causing the issue 
+
+-> git bisect start <commit-id> <commit-id>
+
+-> git bisect run ./<shellscript>.sh <filename>
+============================================
+#!/bin/bash
+        FILE=$1
+if [ -f $FILE ];
+then
+        echo "File found"
+        exit 0;
+else
+        echo "File not found"
+        exit 1;
+fi
+===========================================
+->  
+
+
+
+
+ 
